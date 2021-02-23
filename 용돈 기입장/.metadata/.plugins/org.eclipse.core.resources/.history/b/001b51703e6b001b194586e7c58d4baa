@@ -1,0 +1,54 @@
+package AllowanceBook;
+
+import java.awt.Color;
+import java.awt.Cursor;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class HelpScreen extends JFrame {
+
+	private JPanel Panel;
+	private JButton okBtn;
+
+	private ImageIcon okBtnE = new ImageIcon(getClass().getResource("../image/okBtnE.png"));
+	private ImageIcon okBtnB = new ImageIcon(getClass().getResource("../image/okBtnB.png"));
+	
+	public HelpScreen() {
+		setTitle("µµ¿ò¸»");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(test.class.getResource("/image/MoneyGun.png")));
+		Panel = new JPanel();
+		Panel.setBackground(new Color(255, 222, 239));
+		
+		okBtn = new JButton();
+		okBtn.setBounds(120, 315, 100, 40);
+		okBtn.setBorderPainted(false);
+		okBtn.setContentAreaFilled(false);
+		okBtn.setFocusable(false);
+		okBtn.addMouseListener((MouseListener) new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
+				okBtn.setIcon(okBtnE);
+				okBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				okBtn.setIcon(okBtnB);
+				okBtn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+		});	
+		
+		Panel.add(okBtn);
+		
+		Panel.setLayout(null);
+		getContentPane().add(Panel);
+		setResizable(false);
+		setBounds(570, 160, 450, 505);
+		setVisible(true);		
+	}
+}

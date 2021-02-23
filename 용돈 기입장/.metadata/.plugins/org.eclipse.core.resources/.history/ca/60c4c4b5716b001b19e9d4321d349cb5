@@ -1,0 +1,29 @@
+package AllowanceBook;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.EventQueue;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+
+public class ResultScreen extends JFrame {
+
+	private JPanel Panel;
+
+	public ResultScreen() {
+		setTitle("수입 내역");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(test.class.getResource("/image/MoneyGun.png")));
+		Panel = new JPanel();
+		Panel.setBackground(new Color(255, 222, 239));
+		
+		Panel.setLayout(null);
+		add(Panel);
+		
+		setResizable(false);
+		setBounds(570, 160, 350, 400);
+		setVisible(true);
+	}
+}

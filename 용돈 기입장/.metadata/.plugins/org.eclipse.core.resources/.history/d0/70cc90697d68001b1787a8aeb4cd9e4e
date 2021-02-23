@@ -1,0 +1,87 @@
+package AllowanceBook;
+
+import java.awt.Cursor;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Color;
+import java.awt.Font;
+import javax.swing.JTextField;
+
+public class IncomeScreen extends JFrame{
+	private JPanel Panel;
+	private JButton okBtn, date, money, content;
+	private JTextField textField;
+	
+	private ImageIcon okBtnE = new ImageIcon(getClass().getResource("../image/okBtnE.png"));
+	private ImageIcon okBtnB = new ImageIcon(getClass().getResource("../image/okBtnB.png"));
+	
+	public IncomeScreen() {
+		setTitle("수입 내역");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(test.class.getResource("/image/MoneyGun.png")));
+		Panel = new JPanel();
+		Panel.setBackground(new Color(255, 222, 239));
+		
+		okBtn = new JButton();
+		okBtn.setBounds(140, 295, 70, 30);
+		okBtn.setBorderPainted(false);
+		okBtn.setContentAreaFilled(false);
+		okBtn.setFocusable(false);
+		okBtn.addMouseListener((MouseListener) new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
+				okBtn.setIcon(okBtnE);
+				okBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				okBtn.setIcon(okBtnB);
+				okBtn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+		});	
+		
+		date = new JButton("날 짜");
+		date.setFont(new Font("나눔스퀘어라운드 ExtraBold", Font.PLAIN, 20));
+		date.setBounds(12, 40, 90, 25);
+		date.setBorderPainted(false);
+		date.setContentAreaFilled(false);
+		date.setFocusable(false);
+		
+		money = new JButton("수 입");
+		money.setFont(new Font("나눔스퀘어라운드 ExtraBold", Font.PLAIN, 20));
+		money.setBounds(12, 90, 90, 25);
+		money.setBorderPainted(false);
+		money.setContentAreaFilled(false);
+		money.setFocusable(false);
+		
+		content = new JButton("내 용");
+		content.setFont(new Font("나눔스퀘어라운드 ExtraBold", Font.PLAIN, 20));
+		content.setBounds(12, 154, 90, 25);
+		content.setBorderPainted(false);
+		content.setContentAreaFilled(false);
+		content.setFocusable(false);
+		
+		Panel.add(date);
+		Panel.add(money);
+		Panel.add(content);
+		Panel.add(okBtn);
+		
+		Panel.setLayout(null);
+		getContentPane().add(Panel);
+		
+		textField = new JTextField();
+		textField.setBounds(135, 40, 189, 25);
+		Panel.add(textField);
+		textField.setColumns(10);
+		setBounds(570, 160, 350, 400);
+		setVisible(true);
+	}
+}

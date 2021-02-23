@@ -1,0 +1,132 @@
+package AllowanceBook;
+
+import java.awt.Cursor;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Toolkit;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+
+public class MainScreen extends JFrame{
+	private JPanel Panel;
+	private JButton startBtn, closeBtn, helpBtn;
+	private JLabel mainName;
+	
+	private ImageIcon startBtnE = new ImageIcon(getClass().getResource("../image/startBtnE.png"));
+	private ImageIcon startBtnB = new ImageIcon(getClass().getResource("../image/startBtnB.png"));
+	
+	private ImageIcon closeBtnE = new ImageIcon(getClass().getResource("../image/closeBtnE.png"));
+	private ImageIcon closeBtnB = new ImageIcon(getClass().getResource("../image/closeBtnB.png"));
+
+	private Image MainBackground = new ImageIcon(getClass().getResource("../image/MainBackground.png")).getImage();
+
+	
+	public MainScreen() {
+		setTitle("øÎµ∑ ±‚¿‘¿Â");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(test.class.getResource("/image/MoneyGun.png")));
+		Panel = new JPanel();
+		
+		Panel.setLayout(null);
+		
+		startBtn = new JButton();
+		closeBtn = new JButton();
+		helpBtn = new JButton();
+		
+		startBtn.setBounds(75, 350, 300, 70);	
+		startBtn.setBorderPainted(false);
+		startBtn.setContentAreaFilled(false);
+		startBtn.setFocusPainted(false);
+		startBtn.addMouseListener((MouseListener) new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
+				startBtn.setIcon(startBtnE);
+				startBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				startBtn.setIcon(startBtnB);
+				startBtn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					new ActionScreen();
+				}catch(Exception ex) {
+					ex.printStackTrace();
+				}
+			}
+		});
+
+		
+		closeBtn.setBounds(75, 470, 300, 70);
+		closeBtn.setBorderPainted(false);
+		closeBtn.setContentAreaFilled(false);
+		closeBtn.setFocusable(false);
+		closeBtn.addMouseListener((MouseListener) new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
+				closeBtn.setIcon(closeBtnE);
+				closeBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				closeBtn.setIcon(closeBtnB);
+				closeBtn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					Thread.sleep(1000);
+				}catch(InterruptedException ex) {
+					ex.printStackTrace();
+				};
+				System.exit(0);
+			}
+		});
+		
+		helpBtn.setBounds(0, 600, 50, 50);
+		//helpBtn.setBorderPainted(false);
+		//helpBtn.setContentAreaFilled(false);
+		//helpBtn.setFocusable(false);
+		/*helpBtn.addMouseListener((MouseListener) new MouseAdapter() {
+			public void mouseEntered(MouseEvent e) {
+				helpBtn.setIcon(helpBtnE);
+				helpBtn.setCursor(new Cursor(Cursor.HAND_CURSOR));
+				}
+			@Override
+			public void mouseExited(MouseEvent e) {
+				helpBtn.setIcon(helpBtnB);
+				helpBtn.setCursor(new Cursor(Cursor.DEFAULT_CURSOR));
+			}
+			@Override
+			public void mousePressed(MouseEvent e) {
+				try {
+					new HelpScreen();
+				}catch(InterruptedException ex) {
+					ex.printStackTrace();
+				};
+				System.exit(0);
+			}
+		});*/
+
+	
+
+		Panel.add(startBtn);
+		Panel.add(closeBtn);
+		Panel.add(helpBtn);
+		
+		add(Panel);
+		setResizable(false);
+		setBounds(500, 70, 450, 650);
+		setVisible(true);
+	}
+	
+	public void paint(Graphics g) {
+		g.drawImage(MainBackground, 0, 0, null);
+	}
+}

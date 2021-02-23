@@ -1,0 +1,11 @@
+package AllowanceBook;
+
+public class Main {
+	public static void main(String[] args) {
+		
+		new MainScreen();
+		//new ActionScreen();
+		//new LookScreen();
+		//new ResultScreen();
+	}
+}

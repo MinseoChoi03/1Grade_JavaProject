@@ -1,0 +1,26 @@
+package AllowanceBook;
+
+import java.awt.Color;
+import java.awt.Toolkit;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+
+public class ResultScreen extends JFrame {
+
+	private JPanel Panel;
+
+	public ResultScreen() {
+		setTitle("³»¿ª");
+		setIconImage(Toolkit.getDefaultToolkit().getImage(test.class.getResource("/image/MoneyGun.png")));
+		Panel = new JPanel();
+		Panel.setBackground(new Color(255, 222, 239));
+		
+		Panel.setLayout(null);
+		add(Panel);
+		
+		setResizable(false);
+		setBounds(570, 160, 350, 400);
+		setVisible(true);
+	}
+}

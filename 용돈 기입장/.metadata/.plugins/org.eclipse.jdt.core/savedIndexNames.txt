@@ -1,0 +1,3 @@
+INDEX VERSION 1.131+C:\Users\minse\Desktop\학교\1~2 방학 프로젝트\용돈 기입장\.metadata\.plugins\org.eclipse.jdt.core
+755990153.index
+452413474.index
